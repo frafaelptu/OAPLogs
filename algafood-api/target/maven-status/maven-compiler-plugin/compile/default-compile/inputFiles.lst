@@ -1,0 +1,12 @@
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/AlgafoodApiApplication.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/notificacao/NivelUrgencia.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/modelo/Cliente.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/config/oap/LoggingAspect.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/notificacao/Notificador.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/config/oap/LogContext.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/notificacao/NotificadorEmail.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/service/AtivacaoClienteService.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/MeuPrimeiroController.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/config/oap/LogLevel.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/notificacao/NotificadorSMS.java
+/home/francisco-rafael/poc/curso-especialista-spring-rest/02.19-desambiguacao-de-beans-com-anotacao-customizada/algafood-api/src/main/java/com/algaworks/algafood/di/notificacao/TipoDoNotificador.java
