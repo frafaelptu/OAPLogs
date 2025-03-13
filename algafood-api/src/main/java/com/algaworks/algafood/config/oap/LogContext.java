@@ -1,29 +1,57 @@
 package com.algaworks.algafood.config.oap;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+//@RequestScope
 public class LogContext {
 
-    LogContext(){
+    LogContext() {
         throw new IllegalStateException("Utility class");
     }
 
-    private static final ThreadLocal<Map<String, String>> context = ThreadLocal.withInitial(HashMap::new);
+    private static final ThreadLocal<ArrayList<Object>> data = ThreadLocal.withInitial(ArrayList::new);
 
-    public static void put(String key, String value) {
-        context.get().put(key, value);
+    public static void addData(Object object) {
+        data.get().add(object);
     }
 
-    public static String get(String key) {
-        return context.get().get(key);
+    public static <T> List<T> getDataByType(Class<T> type) {
+        return data.get()
+                .stream()
+                .filter(type::isInstance)
+                .map(type::cast)
+                .collect(Collectors.toList());
     }
 
-    public static Map<String, String> getAll() {
-        return context.get();
+    public static <T> T getDataByAttribute(Class<T> type, String attributeName, Object attributeValue) {
+        List<T> results = getDataByType(type)
+                .stream()
+                .filter(item -> {
+                    try {
+                        Field field = item.getClass().getDeclaredField(attributeName);
+                        field.setAccessible(true);
+                        Object fieldValue = field.get(item);
+                        if (fieldValue instanceof String && attributeValue instanceof String) {
+                            return ((String) fieldValue).equalsIgnoreCase((String) attributeValue);
+                        }
+                        return fieldValue.equals(attributeValue);
+                    } catch (NoSuchFieldException | IllegalAccessException e) {
+                        return false;
+                    }
+                })
+                .collect(Collectors.toList());
+        return results.size() == 1 ? results.get(0) : null;
+    }
+
+
+    public static List<Object> getAll() {
+        return new ArrayList<>(data.get());
     }
 
     public static void clear() {
-        context.remove();
+        data.remove();
     }
 }

@@ -1,11 +1,14 @@
 package com.algaworks.algafood.di.notificacao;
 
 import com.algaworks.algafood.config.oap.LogContext;
+import com.algaworks.algafood.log.ConsultaViacao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.algaworks.algafood.di.modelo.Cliente;
+
+import java.util.ArrayList;
 
 @TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
 @Component
@@ -18,7 +21,16 @@ public class NotificadorEmail implements Notificador {
 		System.out.printf("Notificando %s através do e-mail %s: %s\n", 
 				cliente.getNome(), cliente.getEmail(), mensagem);
 
-		LogContext.put("notificacao_por_mail", "true");
+		ConsultaViacao consultaViacao = new ConsultaViacao();
+		consultaViacao.setOperacao("Consulta viação");
+		consultaViacao.setGrupo("RJ");
+		consultaViacao.setNome("Eucatur");
+		consultaViacao.setIdTransacao("YYYY");
+		ArrayList<String> rotas = new ArrayList<>();
+		rotas.add("Rota ABC");
+		rotas.add("Rota XPT");
+		consultaViacao.setRotas(rotas);
+		LogContext.addData(consultaViacao);
 	}
 
 }
